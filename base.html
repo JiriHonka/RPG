@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dungeon - vyber hlavní obrazek</title>
+    <style>
+      body { font-family: system-ui, sans-serif; background:#111; color:#eee; display:flex; flex-direction:column; align-items:center; gap:12px; padding:20px; }
+      .board { display: grid; grid-template-columns: repeat(8, 64px); grid-gap:6px; }
+      .tile { width:64px; height:64px; background-size:cover; background-position:center; cursor:pointer; border-radius:6px; box-shadow: 0 2px 0 rgba(0,0,0,0.6) inset; }
+      .topbar { width:100%; display:flex; justify-content:space-between; align-items:center; max-width:720px }
+      .main-preview { width:160px; height:160px; background:#222; border-radius:8px; background-size:cover; background-position:center }
+      button { padding:8px 12px; border-radius:6px; border:0; background:#2b2b2b; color:#fff; cursor:pointer }
+      .images-legend { display:flex; gap:8px; align-items:center }
+      .images-legend img { width:48px; height:48px; object-fit:cover; border-radius:6px }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div>
+        <h2>Dungeon - klikni dlaždici pro označení cesty</h2>
+        <p>Vybraný hlavní obrázek bude přenesen na další stránku.</p>
+      </div>
+
+      <div style="text-align:right">
+        <div class="images-legend">
+          <!-- thumbnails of images available in the folder -->
+          <img src="player.png" alt="player" />
+          <img src="dm-start.png" alt="start" />
+          <img src="dm-chodba-a.png" alt="chodba" />
+        </div>
+        <div style="height:8px"></div>
+        <div class="main-preview" id="mainPreview" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div id="board" class="board" aria-label="Dungeon grid"></div>
+
+    <form id="nextForm" method="get" action="/next">
+      <input type="hidden" name="main" id="mainInput" value="dm-start.png" />
+      <button type="submit">Jdi na další stránku (přenést hlavní obrázek)</button>
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
